@@ -1,8 +1,8 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const morgan = require("morgan");
 const cors = require("cors");
 const connect = require("./connection")
+const userRouter = require("./Router/userRouter")
 const kendraRouter = require("./Router/kendraRouter");
 // this event emitter is temporary
 // require('events').EventEmitter.defaultMaxListeners = 15;
@@ -20,7 +20,10 @@ app.use(morgan("dev"));
 // Connect to MongoDB
 // const uri = "mongodb+srv://jangraaditya11:5CdmDpR9cOkPhdlg@nashamukti-cluster.0edji1h.mongodb.net/nashamukti?retryWrites=true&w=majority"
 connect();
+
+app.use("/authenticate/",userRouter);
 app.use("/api/",kendraRouter);
+
 
 app.get("/",(req , res)=>{
   res.send("Hello world"); 

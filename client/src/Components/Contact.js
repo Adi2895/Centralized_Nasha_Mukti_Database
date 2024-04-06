@@ -1,6 +1,17 @@
-import React from 'react'
-
+import React,{useEffect} from 'react'
+import Footer from './Footer'
+import { useNavigate } from 'react-router-dom';
 export default function Contact() {
+
+    let navigate = useNavigate(); 
+    // const exploreHandle=()=>{
+    //   explore.current?.scrollIntoView({behavior:'smooth'});
+    // }
+    useEffect(()=>{
+      if(!localStorage.getItem("token"))
+      navigate("/login")
+    })
+
   return (
     <>
          <div className='mt-5' style={{backgroundColor:"#f1f5f8"}}>
@@ -76,6 +87,7 @@ export default function Contact() {
             </div>
         </div> 
         
+        <Footer/>
     </>
   )
 }

@@ -1,6 +1,12 @@
 const stateModel = require("../Models/state");
 const cityModel = require("../Models/city");
 const kendraModel = require("../Models/Kendra");
+const User = require("../Models/user");
+const JWT_SECRET = "CENTRALIZED@NASHA@MUKTI@DATABASE"
+
+
+
+
 const addKendraController = async(req, res)=>{
     try {
         // console.log(req.body);
@@ -287,7 +293,8 @@ function convertToTitleCase(inputString) {
     return result.toString();
 }
 
-module.exports = {addKendraController, 
+module.exports = {
+      addKendraController, 
     updateKendraController,
     updateCityController,
     updateStateController,

@@ -208,7 +208,7 @@ Header
 .header {
     /* background-color: #678e3e; */
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    background: 
                 url("https://cdn.expresshealthcare.in/wp-content/uploads/2020/08/20115430/deaddiction-750x400.jpg") center/cover no-repeat fixed;
     position: relative;
     /* animation */

@@ -1,14 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../dataContext/UserContext";
-import {Link} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
 export default function Navbar() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const { getStatesName,getCitiesName ,getAllKendra} = useContext(UserContext);
   const [stateData, setStateData] = useState([]);
   const [currentState, setCurrentState] = useState("Haryana"); 
   const[cityData, setCityData] = useState([]);
   const[currentCity, setCurrentCity] = useState("")
 
+  const handleLogout = ()=>{
+    localStorage.removeItem('token'); 
+    navigate("/login");
+}
   
  
   useEffect(()=>{
@@ -147,6 +151,12 @@ export default function Navbar() {
             <Link className="navbar-brand" to="/contactus">
             Contact US
           </Link>
+          { !localStorage.getItem('token') ? <form className="d-flex">
+                            <Link className="btn btn-primary mx-1" to="/login" role="button" >Login</Link>
+                            <Link className="btn btn-primary" to="/register" role="button" >Sign up</Link>                       
+                        </form>: <Link className='btn btn-primary' to="/login" role="button" onClick={handleLogout} > Logout </Link>
+                        }
+
           </div>
          
         </div>

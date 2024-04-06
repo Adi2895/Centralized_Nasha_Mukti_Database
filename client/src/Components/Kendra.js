@@ -1,9 +1,23 @@
-import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext,useEffect } from "react";
+import { NavLink,useNavigate } from "react-router-dom";
 import UserContext from "../dataContext/UserContext";
 export default function Kendra() {
   const { kendras } = useContext(UserContext);
   console.log(kendras)
+
+  let navigate = useNavigate(); 
+    // const exploreHandle=()=>{
+    //   explore.current?.scrollIntoView({behavior:'smooth'});
+    // }
+    
+    useEffect(()=>{
+      if(!localStorage.getItem("token"))
+      navigate("/login") 
+      else {
+    }
+    })
+
+
   return (
     <>
       <header className="mt-5 pt-4 text-center">
